@@ -1,10 +1,14 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WorkOp.Models.Empresa; 
 
 public class Departamento {
     [Key] public long? DepartamentoId { get; set; }
     [Required] public string? DeptoNome { get; set; }
+    
+    [ForeignKey("Empresa")] public long? EmpresaId { get; set; }
+    public Empresa Empresa { get; set; }
     
     [MaxLength(200)]
     public string? DescricaoDepto { get; set; }

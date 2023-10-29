@@ -8,6 +8,9 @@ public class Funcionario {
     [ForeignKey("Endereco")] public long EnderecoId { get; set; }
     [Required] public Endereco? Endereco { get; set; }
     
+    [ForeignKey("Empresa")] public long? EmpresaId { get; set; }
+    public Empresa.Empresa Empresa { get; set; }
+    
     [Required] 
     [MaxLength(70)] 
     public string? FuncionarioNome { get; set; }
