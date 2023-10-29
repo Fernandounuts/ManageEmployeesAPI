@@ -27,7 +27,7 @@ public class FuncionarioRepository : IFuncionarioRepository{
 
     public async Task<List<Funcionario>> GetFuncionariosInDepartameto(long? departamentoId) {
         var depto = await _context.Departamentos
-            .Where(d => d.DepartamentoId == departamentoId)
+            .Where(d => d.DepartamentoId == departamentoId).Include(departamento => departamento.FuncionariosDepto)
             .FirstOrDefaultAsync();
 
         return depto.FuncionariosDepto;
